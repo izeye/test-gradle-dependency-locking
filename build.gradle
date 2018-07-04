@@ -6,8 +6,12 @@ repositories {
     mavenCentral()
 }
 
+dependencyLocking {
+    lockAllConfigurations()
+}
+
 dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.12'
+    implementation 'org.springframework:spring-beans:[5.0,6.0)'
 }
 
 wrapper {
