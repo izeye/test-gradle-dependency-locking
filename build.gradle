@@ -17,3 +17,14 @@ dependencies {
 wrapper {
     gradleVersion = '5.0'
 }
+
+task resolveAndLockAll {
+    doFirst {
+        assert gradle.startParameter.writeDependencyLocks
+    }
+    doLast {
+        configurations.findAll {
+            it.canBeResolved
+        }.each { it.resolve() }
+    }
+}
